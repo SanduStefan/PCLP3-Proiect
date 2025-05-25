@@ -1,0 +1,120 @@
+Date lipsa din setul de date:
+                       count    percent
+Age                        0   0.000000
+Weight_kg                  0   0.000000
+Height_m                   0   0.000000
+BMI                        0   0.000000
+Blood_Pressure             0   0.000000
+Cholesterol_mg_dL          0   0.000000
+Glucose_mg_dL              0   0.000000
+Gender                     0   0.000000
+Ethnicity                  0   0.000000
+Smoking_Status             0   0.000000
+Alcohol_Use              410  34.166667
+Physical_Activity          0   0.000000
+Family_History_Cancer      0   0.000000
+Tumoral_Marker_0           0   0.000000
+Tumoral_Marker_1           0   0.000000
+Tumoral_Marker_2           0   0.000000
+Tumoral_Marker_3           0   0.000000
+Tumoral_Marker_4           0   0.000000
+Tumoral_Marker_5           0   0.000000
+Tumoral_Marker_6           0   0.000000
+Tumoral_Marker_7           0   0.000000
+Tumoral_Marker_8           0   0.000000
+Tumoral_Marker_9           0   0.000000
+Tumoral_Marker_10          0   0.000000
+Tumoral_Marker_11          0   0.000000
+
+================================================================================
+
+Dimensiunea setului de antrenament: (960, 25)
+Dimensiunea setului de test: (240, 25)
+
+================================================================================
+
+Subseturile au fost salvate în fișierele 'train_dataset.csv' și 'test_dataset.csv'.
+
+================================================================================
+
+Statistici coloane numerice set antrenament:
+                   count        mean        std     min       25%      50%       75%     max
+Age                960.0   54.003125  20.175171   20.00   36.0000   54.000   72.0000   89.00
+Weight_kg          960.0   82.283646  21.744840   45.00   62.9000   82.550  101.2000  119.80
+Height_m           960.0    1.712271   0.168808    1.40    1.5800    1.720    1.8600    2.00
+BMI                960.0   28.861875   9.423361   11.60   21.4000   28.550   35.0250   59.60
+Blood_Pressure     960.0  134.038542  26.039185   90.00  111.0000  133.000  156.0000  179.00
+Cholesterol_mg_dL  960.0  198.485729  57.231524  100.00  149.3500  195.250  248.3500  299.80
+Glucose_mg_dL      960.0  135.477396  37.686375   70.50  102.2000  136.150  169.1500  199.90
+Tumoral_Marker_0   960.0   49.553802  29.295701    0.02   24.0250   48.135   75.9175   99.93
+Tumoral_Marker_1   960.0    9.742708   5.783138    0.00    5.0000   10.000   15.0000   19.00
+Tumoral_Marker_3   960.0   49.960552  29.051393    0.06   24.3925   49.115   76.2375   99.98
+Tumoral_Marker_4   960.0    9.500000   5.769648    0.00    5.0000    9.000   15.0000   19.00
+Tumoral_Marker_6   960.0   50.030813  28.345297    0.09   26.5675   50.585   73.8525   99.66
+Tumoral_Marker_7   960.0    9.590625   5.831320    0.00    4.0000   10.000   15.0000   19.00
+Tumoral_Marker_9   960.0   49.522281  28.080600    0.25   26.0575   48.930   73.1525   99.83
+Tumoral_Marker_10  960.0    9.354167   5.704176    0.00    4.0000    9.000   14.0000   19.00
+
+================================================================================
+
+Statistici coloane numerice set test:
+                   count        mean        std     min       25%      50%       75%     max
+Age                240.0   54.216667  21.026854   20.00   35.7500   54.000   73.0000   89.00
+Weight_kg          240.0   81.767500  21.774776   45.10   62.0750   83.100  100.8500  119.40
+Height_m           240.0    1.702250   0.177820    1.40    1.5400    1.710    1.8600    2.00
+BMI                240.0   29.123750   9.959015   12.00   22.5750   27.800   34.8000   55.00
+Blood_Pressure     240.0  138.662500  25.674146   90.00  119.0000  140.000  161.0000  179.00
+Cholesterol_mg_dL  240.0  199.781250  57.421793  100.10  149.6500  198.150  248.7250  299.10
+Glucose_mg_dL      240.0  132.033333  37.712202   71.20   98.1000  130.050  162.8500  199.80
+Tumoral_Marker_0   240.0   52.412625  30.188111    0.56   27.0800   53.115   79.2625   99.86
+Tumoral_Marker_1   240.0    9.925000   5.543533    0.00    5.0000   10.000   14.2500   19.00
+Tumoral_Marker_3   240.0   49.327417  28.670751    0.86   23.6500   51.975   74.5075   99.83
+Tumoral_Marker_4   240.0    9.045833   5.759655    0.00    4.0000    9.000   14.0000   19.00
+Tumoral_Marker_6   240.0   54.534417  28.125122    0.42   31.2475   57.995   78.3100   99.72
+Tumoral_Marker_7   240.0    9.041667   5.675162    0.00    5.0000    9.000   13.0000   19.00
+Tumoral_Marker_9   240.0   54.270958  29.417039    0.74   29.6175   56.170   79.7025   99.73
+Tumoral_Marker_10  240.0    9.358333   5.532401    0.00    4.7500    9.000   14.0000   19.00
+
+================================================================================
+
+Statistici variabile categorice set antrenament:
+                      count unique       top freq
+Gender                  960      2      Male  490
+Ethnicity               960      5     Other  206
+Smoking_Status          960      3     Never  338
+Alcohol_Use             960      2  Moderate  662
+Physical_Activity       960      3  Moderate  347
+Family_History_Cancer   960      2        No  488
+Tumoral_Marker_2        960      4      High  255
+Tumoral_Marker_5        960      4    Medium  257
+Tumoral_Marker_8        960      4      High  265
+Tumoral_Marker_11       960      4       Low  273
+
+================================================================================
+
+Statistici variabile categorice set test:
+                      count unique       top freq
+Gender                  240      2    Female  124
+Ethnicity               240      5     White   57
+Smoking_Status          240      3   Current   95
+Alcohol_Use             240      2  Moderate  161
+Physical_Activity       240      3      High   93
+Family_History_Cancer   240      2        No  120
+Tumoral_Marker_2        240      4  Critical   65
+Tumoral_Marker_5        240      4    Medium   65
+Tumoral_Marker_8        240      4       Low   62
+Tumoral_Marker_11       240      4       Low   73
+
+================================================================================
+
+Acuratețea modelului de regresie logistică: 0.61
+Raport clasificare:
+              precision    recall  f1-score   support
+
+          No       0.70      0.65      0.68       149
+         Yes       0.49      0.55      0.52        91
+
+    accuracy                           0.61       240
+   macro avg       0.60      0.60      0.60       240
+weighted avg       0.62      0.61      0.62       240
+

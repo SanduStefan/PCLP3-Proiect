@@ -8,10 +8,12 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 from sklearn.preprocessing import LabelEncoder
 
+f = open('output.txt', 'w')
+
 def separator():
-    print()
-    print("================================================================================")
-    print()
+    print(file = f)
+    print("================================================================================", file = f)
+    print(file = f)
 
 os.makedirs("grafice", exist_ok=True)
 
@@ -19,50 +21,47 @@ df = pd.read_csv("./patient_cancer_prediction.csv")
 X = df.drop('Has_Cancer', axis=1)
 y = df['Has_Cancer']
 
-print("Date lipsa din setul de date:")
+print("Date lipsa din setul de date:", file = f)
 lipsa = X.isnull().sum().to_frame('count')
 lipsa['percent'] = 100 * lipsa['count'] / len(X)
-print(lipsa)
+print(lipsa, file = f)
 separator()
 
 for i in lipsa.index:
     if lipsa.loc[i, 'count'] > 0:
         if X[i].dtype in ['float64', 'int64']:
-            print(f" - Coloana '{i}': imputare cu mediana")
             median = X[i].median()
-            X[i].fillna(median, inplace=True)
+            X[i] = X[i].fillna(median)
         else:
-            print(f" - Coloana '{i}': imputare cu modă")
             mode = X[i].mode()[0]
-            X[i].fillna(mode, inplace=True)
-separator()
+            X[i] = X[i].fillna(mode)
 
 X_train, X_test, y_train, y_test = train_test_split(
          X, y, test_size=0.2, random_state=42)
 
-print(f"Dimensiunea setului de antrenament: {X_train.shape}")
-print(f"Dimensiunea setului de test: {X_test.shape}")
+print(f"Dimensiunea setului de antrenament: {X_train.shape}", file = f)
+print(f"Dimensiunea setului de test: {X_test.shape}", file = f)
 separator()
 
 X_train.assign(Has_Cancer=y_train).to_csv("train_dataset.csv", index=False)
 X_test.assign(Has_Cancer=y_test).to_csv("test_dataset.csv", index=False)
-print("Subseturile au fost salvate în fișierele 'train_dataset.csv' și 'test_dataset.csv'.")
+print("Subseturile au fost salvate în fișierele 'train_dataset.csv' și 'test_dataset.csv'.", file = f)
 separator()
 
-print("Statistici coloane numerice set antrenament:")
-print(X_train.describe().T)
+print("Statistici coloane numerice set antrenament:", file = f)
+print(X_train.describe().T, file = f)
 separator()
 
-print("Statistici coloane numerice set test:")
-print(X_test.describe().T)
+print("Statistici coloane numerice set test:", file = f)
+print(X_test.describe().T, file = f)
 separator()
 
-print("Statistici variabile categorice set antrenament:")
-print(X_train.select_dtypes(include='object').describe().T)
+print("Statistici variabile categorice set antrenament:", file = f)
+print(X_train.select_dtypes(include='object').describe().T, file = f)
 separator()
 
-print("Statistici variabile categorice set test:")
-print(X_test.select_dtypes(include='object').describe().T)
+print("Statistici variabile categorice set test:", file = f)
+print(X_test.select_dtypes(include='object').describe().T, file = f)
 separator()
 
 numeric = X_train.select_dtypes(include='number').columns
@@ -120,7 +119,7 @@ model.fit(X_train, y_train)
 
 y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
-print(f"Acuratețea modelului de regresie logistică: {accuracy:.2f}")
+print(f"Acuratețea modelului de regresie logistică: {accuracy:.2f}", file = f)
 
 # Matrice de confuzie
 cm = confusion_matrix(y_test, y_pred)
@@ -133,5 +132,5 @@ plt.tight_layout()
 plt.savefig("grafice/matrice_confuzie.png")
 plt.close()
 
-print("Raport clasificare:")
-print(classification_report(y_test, y_pred))
+print("Raport clasificare:", file = f)
+print(classification_report(y_test, y_pred), file = f)

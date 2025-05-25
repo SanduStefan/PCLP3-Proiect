@@ -1,30 +1,30 @@
 Date lipsa din setul de date:
-                       count    percent
-Age                        0   0.000000
-Weight_kg                  0   0.000000
-Height_m                   0   0.000000
-BMI                        0   0.000000
-Blood_Pressure             0   0.000000
-Cholesterol_mg_dL          0   0.000000
-Glucose_mg_dL              0   0.000000
-Gender                     0   0.000000
-Ethnicity                  0   0.000000
-Smoking_Status             0   0.000000
-Alcohol_Use              410  34.166667
-Physical_Activity          0   0.000000
-Family_History_Cancer      0   0.000000
-Tumoral_Marker_0           0   0.000000
-Tumoral_Marker_1           0   0.000000
-Tumoral_Marker_2           0   0.000000
-Tumoral_Marker_3           0   0.000000
-Tumoral_Marker_4           0   0.000000
-Tumoral_Marker_5           0   0.000000
-Tumoral_Marker_6           0   0.000000
-Tumoral_Marker_7           0   0.000000
-Tumoral_Marker_8           0   0.000000
-Tumoral_Marker_9           0   0.000000
-Tumoral_Marker_10          0   0.000000
-Tumoral_Marker_11          0   0.000000
+                       count  percent
+Age                        0      0.0
+Weight_kg                  0      0.0
+Height_m                   0      0.0
+BMI                        0      0.0
+Blood_Pressure             0      0.0
+Cholesterol_mg_dL          0      0.0
+Glucose_mg_dL              0      0.0
+Gender                     0      0.0
+Ethnicity                  0      0.0
+Smoking_Status             0      0.0
+Alcohol_Use                0      0.0
+Physical_Activity          0      0.0
+Family_History_Cancer      0      0.0
+Tumoral_Marker_0           0      0.0
+Tumoral_Marker_1           0      0.0
+Tumoral_Marker_2           0      0.0
+Tumoral_Marker_3           0      0.0
+Tumoral_Marker_4           0      0.0
+Tumoral_Marker_5           0      0.0
+Tumoral_Marker_6           0      0.0
+Tumoral_Marker_7           0      0.0
+Tumoral_Marker_8           0      0.0
+Tumoral_Marker_9           0      0.0
+Tumoral_Marker_10          0      0.0
+Tumoral_Marker_11          0      0.0
 
 ================================================================================
 
@@ -82,7 +82,7 @@ Statistici variabile categorice set antrenament:
 Gender                  960      2      Male  490
 Ethnicity               960      5     Other  206
 Smoking_Status          960      3     Never  338
-Alcohol_Use             960      2  Moderate  662
+Alcohol_Use             960      3  Moderate  338
 Physical_Activity       960      3  Moderate  347
 Family_History_Cancer   960      2        No  488
 Tumoral_Marker_2        960      4      High  255
@@ -97,7 +97,7 @@ Statistici variabile categorice set test:
 Gender                  240      2    Female  124
 Ethnicity               240      5     White   57
 Smoking_Status          240      3   Current   95
-Alcohol_Use             240      2  Moderate  161
+Alcohol_Use             240      3     Never   86
 Physical_Activity       240      3      High   93
 Family_History_Cancer   240      2        No  120
 Tumoral_Marker_2        240      4  Critical   65
@@ -107,14 +107,29 @@ Tumoral_Marker_11       240      4       Low   73
 
 ================================================================================
 
-Acuratețea modelului de regresie logistică: 0.61
+Coloana 'Age': 0 outlieri detectați cu IQR rule.
+Coloana 'Weight_kg': 0 outlieri detectați cu IQR rule.
+Coloana 'Height_m': 0 outlieri detectați cu IQR rule.
+Coloana 'BMI': 4 outlieri detectați cu IQR rule.
+Coloana 'Blood_Pressure': 0 outlieri detectați cu IQR rule.
+Coloana 'Cholesterol_mg_dL': 0 outlieri detectați cu IQR rule.
+Coloana 'Glucose_mg_dL': 0 outlieri detectați cu IQR rule.
+Coloana 'Tumoral_Marker_0': 0 outlieri detectați cu IQR rule.
+Coloana 'Tumoral_Marker_1': 0 outlieri detectați cu IQR rule.
+Coloana 'Tumoral_Marker_3': 0 outlieri detectați cu IQR rule.
+Coloana 'Tumoral_Marker_4': 0 outlieri detectați cu IQR rule.
+Coloana 'Tumoral_Marker_6': 0 outlieri detectați cu IQR rule.
+Coloana 'Tumoral_Marker_7': 0 outlieri detectați cu IQR rule.
+Coloana 'Tumoral_Marker_9': 0 outlieri detectați cu IQR rule.
+Coloana 'Tumoral_Marker_10': 0 outlieri detectați cu IQR rule.
+Acuratețea modelului de regresie logistică: 0.60
 Raport clasificare:
               precision    recall  f1-score   support
 
-          No       0.70      0.65      0.68       149
-         Yes       0.49      0.55      0.52        91
+          No       0.69      0.63      0.66       146
+         Yes       0.50      0.56      0.53        94
 
-    accuracy                           0.61       240
-   macro avg       0.60      0.60      0.60       240
-weighted avg       0.62      0.61      0.62       240
+    accuracy                           0.60       240
+   macro avg       0.59      0.60      0.59       240
+weighted avg       0.61      0.60      0.61       240
 

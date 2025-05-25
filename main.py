@@ -34,7 +34,7 @@ for i in lipsa.index:
             X[i] = X[i].fillna(median)
         else:
             mode = X[i].mode()[0]
-            X[i] = X[i].fillna(mode)
+            X[i] = X[i].fillna("Never")
 
 X_train, X_test, y_train, y_test = train_test_split(
          X, y, test_size=0.2, random_state=42)
@@ -74,7 +74,7 @@ for i in numeric:
     plt.close()
 
 
-# Ploturi pentru variabile numerice
+# Grafice pentru variabile numerice
 for i in X_train.select_dtypes(include='number').columns:
     plt.figure(figsize=(6, 3))
     sns.histplot(X_train[i].dropna(), kde=True, bins=30)
@@ -83,7 +83,17 @@ for i in X_train.select_dtypes(include='number').columns:
     plt.savefig(f"grafice/{i}_distributie.png")
     plt.close()
 
-# Ploturi pentru variabile categorice
+    
+    # Calcul outlieri
+    Q1 = X_train[i].quantile(0.25)
+    Q3 = X_train[i].quantile(0.75)
+    IQR = Q3 - Q1
+    lower_bound = Q1 - 1.5*IQR
+    upper_bound = Q3 + 1.5*IQR
+    outliers = X_train[(X_train[i] < lower_bound) | (X_train[i] > upper_bound)][i]
+    print(f"Coloana '{i}': {len(outliers)} outlieri detectați cu IQR rule.", file = f)
+
+# Grafice pentru variabile categorice
 for i in X_train.select_dtypes(include='object').columns:
     plt.figure(figsize=(6, 3))
     sns.countplot(data=X_train, x=i, order=X_train[i].value_counts().index)
@@ -93,7 +103,7 @@ for i in X_train.select_dtypes(include='object').columns:
     plt.savefig(f"grafice/{i}_categoric.png")
     plt.close()
 
-# Matricea de corelații
+# Matrice de corelații
 plt.figure(figsize=(12, 8))
 corr = X_train.select_dtypes(include='number').corr()
 sns.heatmap(corr, annot=True, cmap='coolwarm', fmt=".2f")
@@ -102,7 +112,6 @@ plt.tight_layout()
 plt.savefig("grafice/corelatii_heatmap.png")
 plt.close()
 
-# Codificare labeluri categorice
 siruri = ['Gender', 'Ethnicity', 'Smoking_Status', 'Alcohol_Use',
          'Physical_Activity', 'Family_History_Cancer', 'Tumoral_Marker_2',
          'Tumoral_Marker_5', 'Tumoral_Marker_8', 'Tumoral_Marker_11']

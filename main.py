@@ -25,11 +25,28 @@ lipsa['percent'] = 100 * lipsa['count'] / len(X)
 print(lipsa)
 separator()
 
+for i in lipsa.index:
+    if lipsa.loc[i, 'count'] > 0:
+        if X[i].dtype in ['float64', 'int64']:
+            print(f" - Coloana '{i}': imputare cu mediana")
+            median = X[i].median()
+            X[i].fillna(median, inplace=True)
+        else:
+            print(f" - Coloana '{i}': imputare cu modă")
+            mode = X[i].mode()[0]
+            X[i].fillna(mode, inplace=True)
+separator()
+
 X_train, X_test, y_train, y_test = train_test_split(
          X, y, test_size=0.2, random_state=42)
 
 print(f"Dimensiunea setului de antrenament: {X_train.shape}")
 print(f"Dimensiunea setului de test: {X_test.shape}")
+separator()
+
+X_train.assign(Has_Cancer=y_train).to_csv("train_dataset.csv", index=False)
+X_test.assign(Has_Cancer=y_test).to_csv("test_dataset.csv", index=False)
+print("Subseturile au fost salvate în fișierele 'train_dataset.csv' și 'test_dataset.csv'.")
 separator()
 
 print("Statistici coloane numerice set antrenament:")
@@ -48,23 +65,33 @@ print("Statistici variabile categorice set test:")
 print(X_test.select_dtypes(include='object').describe().T)
 separator()
 
-# Ploturi pentru variabile numerice
-for col in X_train.select_dtypes(include='number').columns:
-    plt.figure(figsize=(6, 3))
-    sns.histplot(X_train[col].dropna(), kde=True, bins=30)
-    plt.title(f'Distribuția pentru {col}')
+numeric = X_train.select_dtypes(include='number').columns
+for i in numeric:
+    plt.figure(figsize=(6,4))
+    sns.boxplot(x=X_train[i])
+    plt.title(f'Boxplot pentru {i}')
     plt.tight_layout()
-    plt.savefig(f"grafice/{col}_distributie.png")
+    plt.savefig(f"grafice/{i}_boxplot.png")
+    plt.close()
+
+
+# Ploturi pentru variabile numerice
+for i in X_train.select_dtypes(include='number').columns:
+    plt.figure(figsize=(6, 3))
+    sns.histplot(X_train[i].dropna(), kde=True, bins=30)
+    plt.title(f'Distribuția pentru {i}')
+    plt.tight_layout()
+    plt.savefig(f"grafice/{i}_distributie.png")
     plt.close()
 
 # Ploturi pentru variabile categorice
-for col in X_train.select_dtypes(include='object').columns:
+for i in X_train.select_dtypes(include='object').columns:
     plt.figure(figsize=(6, 3))
-    sns.countplot(data=X_train, x=col, order=X_train[col].value_counts().index)
+    sns.countplot(data=X_train, x=i, order=X_train[i].value_counts().index)
     plt.xticks(rotation=45)
-    plt.title(f'Distribuția categorică pentru {col}')
+    plt.title(f'Distribuția categorică pentru {i}')
     plt.tight_layout()
-    plt.savefig(f"grafice/{col}_categoric.png")
+    plt.savefig(f"grafice/{i}_categoric.png")
     plt.close()
 
 # Matricea de corelații

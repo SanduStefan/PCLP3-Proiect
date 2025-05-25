@@ -38,3 +38,5 @@ Poate ca ar fi fost mai potrivit sa predomine rezultatele "Yes"(din motivul de f
     Una peste alta, din acest proiect am invatat atat cum sa gestionez un set de date, cat si cum sa-l interpretez si 
 unde sa ma uit atunci cand apar erori sau dezechilibre.
 !!!Setul de date a fost generat de mine, ca experiment, impreuna cu Deepseek(de acolo si discorantele).
+
+!!!Puteti gasi solutia mea si pe Github, aici: https://github.com/SanduStefan/PCLP3-Proiect.git

@@ -93,6 +93,8 @@ for i in X_train.select_dtypes(include='number').columns:
     outliers = X_train[(X_train[i] < lower_bound) | (X_train[i] > upper_bound)][i]
     print(f"Coloana '{i}': {len(outliers)} outlieri detectați cu IQR rule.", file = f)
 
+separator()
+
 # Grafice pentru variabile categorice
 for i in X_train.select_dtypes(include='object').columns:
     plt.figure(figsize=(6, 3))
@@ -129,6 +131,7 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Acuratețea modelului de regresie logistică: {accuracy:.2f}", file = f)
+separator()
 
 # Matrice de confuzie
 cm = confusion_matrix(y_test, y_pred)

@@ -122,7 +122,13 @@ Coloana 'Tumoral_Marker_6': 0 outlieri detectați cu IQR rule.
 Coloana 'Tumoral_Marker_7': 0 outlieri detectați cu IQR rule.
 Coloana 'Tumoral_Marker_9': 0 outlieri detectați cu IQR rule.
 Coloana 'Tumoral_Marker_10': 0 outlieri detectați cu IQR rule.
+
+================================================================================
+
 Acuratețea modelului de regresie logistică: 0.60
+
+================================================================================
+
 Raport clasificare:
               precision    recall  f1-score   support
 
